@@ -1,4 +1,3 @@
-# booking_service.py
 import uvicorn
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
@@ -9,7 +8,6 @@ from datetime import datetime
 app = FastAPI(title="Airline Ticket Booking Service")
 
 # In-memory store for booking data.
-# In production, use a database.
 bookings_db = {}
 
 class Booking(BaseModel):
@@ -48,7 +46,6 @@ def list_bookings():
 def update_booking(booking_id: str, updated_booking: Booking):
     if booking_id not in bookings_db:
         raise HTTPException(status_code=404, detail="Booking not found")
-    # Maintain the same booking ID.
     updated_booking.id = booking_id
     bookings_db[booking_id] = updated_booking
     return updated_booking
@@ -61,6 +58,5 @@ def delete_booking(booking_id: str):
     del bookings_db[booking_id]
     return {"detail": "Booking deleted successfully"}
 
-
 if __name__ == '__main__':
-    uvicorn.run(app)
+    uvicorn.run(app, port=8000)
