@@ -30,7 +30,7 @@ This project uses **Poetry** for managing dependencies and virtual environments.
 
 1. **Clone the repository**:
     ```bash
-    git clone ..
+    git clone https://github.com/PalthyaGopalNaik/Airline-Tciket-reseravtion-booking
     cd Airline-Ticket-reservation-booking
     ```
 
